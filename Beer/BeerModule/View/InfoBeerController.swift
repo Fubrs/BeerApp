@@ -81,7 +81,8 @@ class InfoBeerController: UIViewController {
         addSubviews()
         applyConstraints()
         setupInfoUI()
-        
+        navigationController?.navigationBar.prefersLargeTitles = false
+        title = beer.name
     }
     //MARK: - Private functions
     

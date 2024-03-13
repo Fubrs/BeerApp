@@ -23,6 +23,8 @@ class BeerCell: UITableViewCell {
        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .lightGray
+        view.layer.cornerRadius = 12
+        view.layer.masksToBounds = true
         return view
     }()
     
@@ -60,7 +62,7 @@ class BeerCell: UITableViewCell {
         applyConstraints()
         
         selectionStyle = .none
-        
+        backgroundColor = .clear
     }
     
     required init?(coder: NSCoder) {
@@ -79,8 +81,8 @@ class BeerCell: UITableViewCell {
         NSLayoutConstraint.activate([
         
             beerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            beerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            beerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            beerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            beerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             beerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             
             beerImage.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3),

@@ -86,7 +86,7 @@ class BeerViewController: UIViewController {
         table.tableFooterView = loadingView
         table.estimatedRowHeight = defaultCellHeight
         table.separatorStyle = .none
-        
+        table.backgroundColor = .clear
         return table
     }()
     
@@ -132,7 +132,8 @@ class BeerViewController: UIViewController {
         applyConstraints()
         navigationItem.searchController = searchBar
         requestBeers()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemGray
+        title = "Beers"
     }
     
     //MARK: - Private functions
@@ -165,6 +166,7 @@ class BeerViewController: UIViewController {
         apperance.backgroundColor = .systemGray
         navigationController?.navigationBar.standardAppearance = apperance
         navigationController?.navigationBar.scrollEdgeAppearance = apperance
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     // MARK: - Actions
