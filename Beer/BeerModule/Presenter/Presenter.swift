@@ -20,13 +20,19 @@ protocol BeerPresenterDelegate: AnyObject {
 
 class BeerPresenter: BeerPresenterProrotocol {
     
+    //MARK: - Properties
+    
     weak var delegate: BeerPresenterDelegate?
     
     private let apiManager: ApiManagerProtocol
     
+    //MARK: - Construction
+    
     init(apiManager: ApiManagerProtocol) {
         self.apiManager = apiManager
     }
+    
+    //MARK: - Functions
     
     func fetchBeer(page: Int) {
         
@@ -55,18 +61,6 @@ class BeerPresenter: BeerPresenterProrotocol {
             }
         }.resume()
     }
-    
-//    func fetchData(pagination: Bool = false, comletion: @escaping (Result<[String], Error>) -> Void) {
-//        DispatchQueue.global().asyncAfter(deadline: .now() + 1, execute: {
-//            guard let url = apiManager.url(forBeersAt: 1) else { return }
-//                    URLSession.shared.dataTask(with: url) { data, _, error in
-//                       if let error {
-//                           return }
-//                        guard let data else { return }
-//                        
-//            comletion(.success(data))}
-//        })
-//    }
 }
 
 

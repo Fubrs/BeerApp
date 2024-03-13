@@ -11,6 +11,8 @@ class BeerCell: UITableViewCell {
     
     var imageCache: ImageCacheManager?
     
+    //MARK: - Private properties
+    
     private var stringBeerImage = "" {
         didSet {
             setupImage(stringBeerImage)
@@ -49,6 +51,8 @@ class BeerCell: UITableViewCell {
         return image
     }()
     
+    //MARK: - Construction
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -62,6 +66,7 @@ class BeerCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    //MARK: - Private functions
     
     private func addSubviews() {
         contentView.addSubview(beerView)
@@ -95,27 +100,22 @@ class BeerCell: UITableViewCell {
         ])
     }
     
+    //MARK: - Functions
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         
         beerImage.image = nil
     }
-    
+   
     func setupUI(beer: Beer, currentMode: BeerViewController.SortingMode) {
         
         nameBeerLable.font = .systemFont(ofSize: currentMode == .name ? 18 : 15, weight: currentMode == .name ? .bold : .regular)
         abvBeerLable.font = .systemFont(ofSize: currentMode == .abv ? 18 : 15, weight: currentMode == .abv ? .bold : .regular)
         
-//        switch currentMode {
-//        case .name:
-//            nameBeerLable.font = .systemFont(ofSize: 18, weight: .bold)
-//        default:
-//            nameBeerLable.font = .systemFont(ofSize: 15, weight: .regular)
-//        }
-        
-        nameBeerLable.text = "Название пива: \(beer.name ?? "")"
+        nameBeerLable.text = "Название пива: \(beer.name)"
         stringBeerImage = beer.imageURL ?? ""
-        abvBeerLable.text = "Крепкость пива: \(String(beer.abv ?? 0))"
+        abvBeerLable.text = "Крепкость пива: \(String(beer.abv))"
         
     }
     

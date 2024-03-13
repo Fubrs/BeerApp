@@ -12,7 +12,7 @@
 		865212DE2B9DED77008B3956 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865212DD2B9DED77008B3956 /* ViewController.swift */; };
 		865212E32B9DED79008B3956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 865212E22B9DED79008B3956 /* Assets.xcassets */; };
 		865212E62B9DED79008B3956 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865212E42B9DED79008B3956 /* LaunchScreen.storyboard */; };
-		865212F22B9DF03C008B3956 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865212F12B9DF03C008B3956 /* Model.swift */; };
+		865212F22B9DF03C008B3956 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865212F12B9DF03C008B3956 /* Beer.swift */; };
 		865212F52B9DF09C008B3956 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865212F42B9DF09C008B3956 /* ApiManager.swift */; };
 		865212F82B9DF465008B3956 /* UiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865212F72B9DF465008B3956 /* UiTableViewCell.swift */; };
 		865212FA2B9DF480008B3956 /* BeerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865212F92B9DF480008B3956 /* BeerCell.swift */; };
@@ -31,7 +31,7 @@
 		865212E22B9DED79008B3956 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		865212E52B9DED79008B3956 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		865212E72B9DED79008B3956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		865212F12B9DF03C008B3956 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		865212F12B9DF03C008B3956 /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 		865212F42B9DF09C008B3956 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		865212F72B9DF465008B3956 /* UiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiTableViewCell.swift; sourceTree = "<group>"; };
 		865212F92B9DF480008B3956 /* BeerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerCell.swift; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 		865212F02B9DEF69008B3956 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				865212F12B9DF03C008B3956 /* Model.swift */,
+				865212F12B9DF03C008B3956 /* Beer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -227,7 +227,7 @@
 				865212F52B9DF09C008B3956 /* ApiManager.swift in Sources */,
 				865212DC2B9DED77008B3956 /* SceneDelegate.swift in Sources */,
 				865213072BA0CB21008B3956 /* InfoBeerController.swift in Sources */,
-				865212F22B9DF03C008B3956 /* Model.swift in Sources */,
+				865212F22B9DF03C008B3956 /* Beer.swift in Sources */,
 				865212F82B9DF465008B3956 /* UiTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

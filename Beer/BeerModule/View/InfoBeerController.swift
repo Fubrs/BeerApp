@@ -7,6 +7,7 @@
 
 import UIKit
 class InfoBeerController: UIViewController {
+    //MARK: - Private properties
     
     private let beer: Beer
     private let appComponents: AppComponents
@@ -62,6 +63,8 @@ class InfoBeerController: UIViewController {
         return label
     }()
     
+    //MARK: - Construction
+    
     init(beer: Beer, appComponents: AppComponents) {
         self.beer = beer
         self.appComponents = appComponents
@@ -80,6 +83,7 @@ class InfoBeerController: UIViewController {
         setupInfoUI()
         
     }
+    //MARK: - Private functions
     
     private func addSubviews() {
         view.addSubview(infoBeerView)

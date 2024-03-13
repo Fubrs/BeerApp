@@ -9,6 +9,8 @@ import UIKit
 
 class BeerViewController: UIViewController {
     
+    //MARK: - Nested types
+    
     enum SortingMode: Int, CaseIterable {
         case all
         case name
@@ -28,6 +30,8 @@ class BeerViewController: UIViewController {
             }
         }
     }
+    
+    //MARK: - Private properties
     
     private let beerPresenter: BeerPresenterProrotocol
     private let appComponents: AppComponents
@@ -105,6 +109,7 @@ class BeerViewController: UIViewController {
         return searchBar.isActive && !searchIsEmpty
     }
     
+    //MARK: Construction
     
     init(beerPresenter: BeerPresenterProrotocol, appComponents: AppComponents) {
         self.beerPresenter = beerPresenter
@@ -115,6 +120,8 @@ class BeerViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,6 +134,8 @@ class BeerViewController: UIViewController {
         requestBeers()
         view.backgroundColor = .systemBackground
     }
+    
+    //MARK: - Private functions
     
     private func addSubviews() {
         view.addSubview(segmentedControl)
@@ -151,14 +160,14 @@ class BeerViewController: UIViewController {
         ])
     }
     
-    
-    
     private func setupAppearance() {
         let apperance = UINavigationBarAppearance()
         apperance.backgroundColor = .systemGray
         navigationController?.navigationBar.standardAppearance = apperance
         navigationController?.navigationBar.scrollEdgeAppearance = apperance
     }
+    
+    // MARK: - Actions
     
     @objc private func segmentChange(_ segmentedControll: UISegmentedControl) {
         guard let mode = SortingMode(rawValue: segmentedControll.selectedSegmentIndex) else { return }
@@ -173,6 +182,7 @@ class BeerViewController: UIViewController {
     }
 
 }
+//MARK: - BeerPresenterDelegate
 
 extension BeerViewController: BeerPresenterDelegate {
     func didFoundBeers(_ beers: [Beer]) {
@@ -188,6 +198,8 @@ extension BeerViewController: BeerPresenterDelegate {
     
     }
     
+//MARK: - TableView protocols
+
 extension BeerViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -248,6 +260,8 @@ extension BeerViewController: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(infoBeerController, animated: true)
     }
 }
+
+//MARK: - UISearchBarDelegate
 
 extension BeerViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

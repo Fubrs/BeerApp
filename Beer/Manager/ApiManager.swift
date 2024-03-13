@@ -18,7 +18,11 @@ enum Endpoint {
 }
 
 class ApiManager: ApiManagerProtocol {
+    //MARK: - Private properties
+    
     private let defaultPaginationCount = 20
+    
+    //MARK: - Functions
     
     func url(for endpoint: Endpoint) -> URL? {
         var urlComponents = URLComponents()

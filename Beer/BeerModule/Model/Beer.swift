@@ -1,5 +1,5 @@
 //
-//  Model.swift
+//  Beer.swift
 //  Beer
 //
 //  Created by Nikita Chuklov on 10.03.2024.
@@ -9,7 +9,9 @@ import Foundation
 
 // MARK: - BeerElement
 struct Beer: Codable {
+    /// Identifier of the beer
     let id: Int
+    /// Name of beer
     let name, firstBrewed, description: String
     let imageURL: String?
     let abv: Double
