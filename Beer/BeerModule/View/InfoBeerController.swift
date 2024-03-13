@@ -11,16 +11,11 @@ class InfoBeerController: UIViewController {
     private let beer: Beer
     private let appComponents: AppComponents
     
-    private var imageString = "" {
-        didSet {
-            configureImage(url: imageString)
-        }
-    }
-    
     private let infoBeerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-
+        view.backgroundColor = .lightGray
+        
         return view
     }()
     
@@ -28,8 +23,8 @@ class InfoBeerController: UIViewController {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFill
-        image.backgroundColor = .gray
-
+       
+        
         return image
     }()
     
@@ -39,8 +34,8 @@ class InfoBeerController: UIViewController {
         label.textColor = .white
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.numberOfLines = 0
-
-
+        
+        
         return label
     }()
     
@@ -51,8 +46,8 @@ class InfoBeerController: UIViewController {
         label.textColor = .white
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.numberOfLines = 0
-
-
+        
+        
         return label
     }()
     
@@ -62,8 +57,8 @@ class InfoBeerController: UIViewController {
         label.textColor = .white
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.numberOfLines = 0
-
-
+        
+        
         return label
     }()
     
@@ -97,13 +92,13 @@ class InfoBeerController: UIViewController {
     
     private func applyConstraints() {
         NSLayoutConstraint.activate([
-        
+            
             infoBeerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             infoBeerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             infoBeerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            infoBeerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            infoBeerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            imageBeerView.topAnchor.constraint(equalTo: infoBeerView.topAnchor, constant: 20),
+            imageBeerView.topAnchor.constraint(equalTo: infoBeerView.topAnchor, constant: 50),
             imageBeerView.centerXAnchor.constraint(equalTo: infoBeerView.centerXAnchor),
             imageBeerView.heightAnchor.constraint(equalTo: infoBeerView.heightAnchor, multiplier: 0.3),
             imageBeerView.widthAnchor.constraint(equalTo: infoBeerView.widthAnchor, multiplier: 0.2),
@@ -111,12 +106,12 @@ class InfoBeerController: UIViewController {
             nameLabel.topAnchor.constraint(equalTo: imageBeerView.bottomAnchor,constant: 50),
             nameLabel.leadingAnchor.constraint(equalTo: infoBeerView.leadingAnchor,constant: 8),
             nameLabel.trailingAnchor.constraint(equalTo: infoBeerView.trailingAnchor,constant: -8),
-           
-            descriptionLabel.topAnchor.constraint(equalTo: nameLabel.topAnchor,constant: 50),
+            
+            descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor,constant: 50),
             descriptionLabel.leadingAnchor.constraint(equalTo: infoBeerView.leadingAnchor,constant: 8),
             descriptionLabel.trailingAnchor.constraint(equalTo: infoBeerView.trailingAnchor,constant: -8),
             
-            foodPairingLabel.topAnchor.constraint(equalTo: descriptionLabel.topAnchor,constant: 50),
+            foodPairingLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor,constant: 50),
             foodPairingLabel.leadingAnchor.constraint(equalTo: infoBeerView.leadingAnchor,constant: 8),
             foodPairingLabel.trailingAnchor.constraint(equalTo: infoBeerView.trailingAnchor,constant: -8),
             
@@ -130,21 +125,8 @@ class InfoBeerController: UIViewController {
         let imageKey = (beer.imageURL ?? "") as NSString
         let image = appComponents.imageCache.image(for: imageKey)
         imageBeerView.image = image
+        foodPairingLabel.text = beer.foodPairing.joined(separator: ", ")
     }
-    
-    private func configureImage(url: String){
-        guard let urlString = URL(string: url) else {return}
-        URLSession.shared.dataTask(with: urlString) { data, _, error in
-            if let error {
-                print(error.localizedDescription)
-                return
-            }
-            guard let data else { return }
-            let image = UIImage(data: data)
-            DispatchQueue.main.async {
-                self.imageBeerView.image = image
-            }
-        }.resume()
-    }
-    
 }
+
+
