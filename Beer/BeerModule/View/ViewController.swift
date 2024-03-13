@@ -244,7 +244,7 @@ extension BeerViewController: UITableViewDelegate, UITableViewDataSource {
             beers = beers.sorted { $0.firstBrewed < $1.firstBrewed }
         }
         let beer = beers[indexPath.row]
-        let infoBeerController = InfoBeerController(beer: beer)
+        let infoBeerController = InfoBeerController(beer: beer, appComponents: appComponents)
         navigationController?.pushViewController(infoBeerController, animated: true)
     }
 }

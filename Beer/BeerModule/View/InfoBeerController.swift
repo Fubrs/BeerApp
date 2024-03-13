@@ -9,6 +9,7 @@ import UIKit
 class InfoBeerController: UIViewController {
     
     private let beer: Beer
+    private let appComponents: AppComponents
     
     private var imageString = "" {
         didSet {
@@ -66,8 +67,9 @@ class InfoBeerController: UIViewController {
         return label
     }()
     
-    init(beer: Beer) {
+    init(beer: Beer, appComponents: AppComponents) {
         self.beer = beer
+        self.appComponents = appComponents
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -125,7 +127,9 @@ class InfoBeerController: UIViewController {
     private func setupInfoUI(){
         self.nameLabel.text = beer.name
         self.descriptionLabel.text = beer.description
-        self.imageString = beer.imageURL ?? ""
+        let imageKey = (beer.imageURL ?? "") as NSString
+        let image = appComponents.imageCache.image(for: imageKey)
+        imageBeerView.image = image
         
 //        for index in beer.foodPairing {
 //            self.foodPairingLabel.text! += " \(index),"
