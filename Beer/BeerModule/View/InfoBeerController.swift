@@ -130,10 +130,6 @@ class InfoBeerController: UIViewController {
         let imageKey = (beer.imageURL ?? "") as NSString
         let image = appComponents.imageCache.image(for: imageKey)
         imageBeerView.image = image
-        
-//        for index in beer.foodPairing {
-//            self.foodPairingLabel.text! += " \(index),"
-//        }
     }
     
     private func configureImage(url: String){
